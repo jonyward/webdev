@@ -1,4 +1,7 @@
 const express = require('express');
+
+require('dotenv').config() // loads data from .env file
+
 const app = express();
 const path = require('path');
 const public = path.join(__dirname, 'public')

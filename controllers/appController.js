@@ -22,21 +22,21 @@ exports.main_page = function (req, res) {
                         lunch: lunch,
                     })
                 });
-            })
+        })
         .catch((err) => {
             console.log("promise rejected", err);
-        });    
+        });
 };
 
 exports.show_update_page = function (req, res) {
     const id = req.params.id;
     db.getDishById(id)
-    .then((entries) => {
-        console.log(entries);
-        res.render("edit", {
-            dish: entries,
-        })
-    });
+        .then((entries) => {
+            console.log(entries);
+            res.render("edit", {
+                dish: entries,
+            })
+        });
 }
 
 exports.staff_page = function (req, res) {
@@ -50,10 +50,10 @@ exports.staff_page = function (req, res) {
                         lunch: lunch,
                     })
                 });
-            })
+        })
         .catch((err) => {
             console.log("promise rejected", err);
-        });    
+        });
 };
 
 exports.post_new_entry = function (req, res) {
@@ -76,7 +76,7 @@ exports.post_update = function (req, res) {
     res.redirect("/staff");
 }
 
-exports.show_new_dishes = function(req, res) {
+exports.show_new_dishes = function (req, res) {
     let dish = req.params.name;
     db.getDishByName(dish)
         .then((entries) => {
