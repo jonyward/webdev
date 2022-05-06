@@ -149,9 +149,9 @@ class Menu {
 
     updateDish(id, name, description, ingredients, price, type, availability) {
         return new Promise((resolve, reject) => {
-            type = type === "true";
+            availability = availability === "True";
             price = Number(price);
-            this.db.update({ "_id": id}, { $set: {'name': name, 'description': description, 'ingredients': ingredients, 'price': price, type: type, 'availability': availability }}, {}, function(err, entries) {
+            this.db.update({ "_id": id}, { $set: {'name': name, 'description': description, 'ingredients': ingredients, 'price': price, "type": type, 'availability': availability }}, {}, function(err, entries) {
                 if (err) {
                     reject(err);
                 } else {

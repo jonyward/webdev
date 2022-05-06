@@ -1,0 +1,39 @@
+const login = require("nedb");
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+class UserDAO {
+    constructor (dbFilePath) {
+        if (dbFilePath) {
+            this.db = new login({ filename: dbFilePath,
+            autoload: true})
+        } else {
+            this.db = new login();
+        }
+    }
+
+    init() {
+        this.db.insert({
+            user: 'Admin',
+            password: 'Admin'
+        });
+    }
+
+    lookup(user, cb) {
+        this.db.find({'user': user}, function (err, entries) {
+        if (err) {
+            return cb(null, null);
+        } else {
+            if (entries.length == 0) {
+                return cb(null, null);
+            }
+                return cb(null, entries[0]);
+            }
+        });
+    }
+}
+
+const dao = new UserDAO();
+dao.init();
+
+module.exports = dao;

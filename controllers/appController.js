@@ -2,9 +2,14 @@
 const { response } = require("express");
 const { render } = require("mustache");
 const menuDAO = require("../models/menuModel");
+const userDao = require("../models/loginModel");
 
 const db = new menuDAO();
 db.init();
+
+exports.show_login = function (req, res) {
+    res.render("login");
+};
 
 exports.main_page = function (req, res) {
     let type = req.params.type;

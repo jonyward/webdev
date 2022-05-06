@@ -1,6 +1,5 @@
 <html>
     <head>
-        <title> {{Title}}</title>
     </head>
     <body>
     <a href="/">Home Page</a>
@@ -8,9 +7,9 @@
     <form method="post" role="form" action="/new">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Please enter a dish name" required>
-        <label for="description">Description</label>
+        <label for="description">Description:</label>
         <input type="text" id="description" name="description" placeholder="Please enter a dish description" required>
-        <label for="ingredients">ingredients:</label>
+        <label for="ingredients">Ingredients:</label>
         <input type="text" id="ingredients" name="ingredients" placeholder="Please enter dish ingredients" required>
         <label for="price">Price:</label>
         <input type="float" id="price" name="price" placeholder="Please enter dish price" required>
@@ -32,7 +31,7 @@
         <h2>{{name}}</h2>
         <p>
             Description: {{description}} <br>
-            ingredients: {{ingredients}} <br>
+            Ingredients: {{ingredients}} <br>
             Price: £{{price}} <br></p>
             Availability: {{availability}} <br>
         <a href="/edit/{{_id}}">Update Dish</a>
@@ -42,7 +41,7 @@
         <h2>{{name}}</h2>
         <p>
             Description: {{description}} <br>
-            ingredients: {{ingredients}} <br>
+            Tngredients: {{ingredients}} <br>
             Price: £{{price}} <br></p>
             Availability: {{availability}} <br>
         <a href="/edit/{{_id}}">Update Dish</a>
